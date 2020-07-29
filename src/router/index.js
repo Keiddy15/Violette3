@@ -1,29 +1,53 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Form from '../views/Form.vue'
+import FinishedForm from '../views/FinishedForm.vue'
+import Login from '../views/Login.vue'
+import Admin from '../views/Admin.vue'
+import Register from '../views/Register.vue'
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
-  const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+const routes = [
+    {
+        path: '*',
+        redirect: '/formulario'
+    },
+    {
+        path: '/',
+        redirect: '/formulario'
+    },
+    {
+        path: '/formulario',
+        name: 'Form',
+        components: {main: Form}
+    },
+    {
+        path: '/Agradecimientos',
+        name: 'FinishedForm',
+        components: {main: FinishedForm}
+    },
+    {
+        path: '/Login',
+        name: 'Login',
+        components: {main: Login}
+    },
+    {
+        path: '/Admin',
+        name: 'Admin',
+        components: {main: Admin}
+    },
+    {
+        path: '/Registrar',
+        name: 'Register',
+        components: {main: Register}
+    }
 ]
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
-})
+    mode: 'history',
+    base: process.env.BASE_URL,
+    routes
+});
 
 export default router
