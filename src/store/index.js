@@ -70,8 +70,9 @@ export default new Vuex.Store({
                 });
                 // @ts-ignore
                 if (state.printItem[i].placeDelivery !== undefined) {
-                    text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878, CARTAGENA DE INDIAS ' +'\n'
+                    text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878, CARTAGENA DE INDIAS' +'\n'
                         + 'VILLA GRANDE DE INDIAS 2 MANZANA 23 LOTE 28.' + '\n'
+                        + '' + '\n'
                         + 'Celular: 304 573 7344' + '\n'
                         + 'Nombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + '\n'
                         + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
@@ -84,6 +85,7 @@ export default new Vuex.Store({
                     if (state.printItem[i].address !== undefined && state.printItem[i].neighborhood !== undefined) {
                         text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878, CARTAGENA DE INDIAS.' + '\n'
                             + 'VILLA GRANDE DE INDIAS 2 MANZANA 23 LOTE 28.' + '\n'
+                            + '' + '\n'
                             + 'Celular: 304 573 7344' + '\n'
                             + 'Nombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + '\n'
                             + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
@@ -96,6 +98,7 @@ export default new Vuex.Store({
                         if (state.printItem[i].address !== undefined && state.printItem[i].houseNumber !== undefined && state.printItem[i].tower !== undefined) {
                             text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878, CARTAGENA DE INDIAS ' + '\n'
                                 + 'VILLA GRANDE DE INDIAS 2 MANZANA 23 LOTE 28.' + '\n'
+                                + '' + '\n'
                                 + 'Celular: 304 573 7344' + '\n'
                                 + 'Nombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + '\n'
                                 + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
