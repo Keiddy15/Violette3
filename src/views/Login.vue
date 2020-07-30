@@ -102,7 +102,7 @@
                 }
             },
             save(user) {
-                db.collection('usuarios').doc(user.user.uid).get().then((doc) => {
+                db.collection('users').doc(user.user.uid).get().then((doc) => {
                     switch (doc.data().admin) {
                         case true: {
                             setTimeout(() => {
