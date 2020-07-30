@@ -50,7 +50,7 @@ export default new Vuex.Store({
             let suma = height - 40;
             let textPos = height + 10;
             for (let i in state.printItem) {
-                if (limit === 7) {
+                if (limit === 6) {
                     page = pdfDoc.addPage();
                     page.setWidth(612);
                     page.setHeight(791);
@@ -59,8 +59,7 @@ export default new Vuex.Store({
                     textPos = height + 10;
                 }
 
-                suma = suma - 100;
-                console.log(suma);
+                suma = suma - 120;
 
                 page.drawImage(pngImage, {
                     x: 20,
@@ -71,27 +70,34 @@ export default new Vuex.Store({
                 });
                 // @ts-ignore
                 if (state.printItem[i].placeDelivery !== undefined) {
-                    text = '\nTEAM VIOLETTE :)' + '\n'
+                    text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878, CARTAGENA DE INDIAS ' +'\n'
+                        + 'VILLA GRANDE DE INDIAS 2 MANZANA 23 LOTE 28.' + '\n'
+                        + 'Celular: 304 573 7344' + '\n'
                         + 'Nombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + '\n'
                         + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
                         + 'Ciudad y departamento: ' + state.printItem[i].city + ', ' + state.printItem[i].departament + '\n'
                         + 'Telefono: ' + state.printItem[i].phone + '\n'
                         + 'Lugar de entrega: ' + state.printItem[i].placeDelivery + '\n'
                         + 'Flete pago ' + '| |' + ' Flete contra entrega ' + '| |' + '\n'
-                        + '___________________________________________________________' + '\n';
+                        + '---------------------------------------------------------' + '\n';
                 } else { // @ts-ignore
                     if (state.printItem[i].address !== undefined && state.printItem[i].neighborhood !== undefined) {
-                        text = '\nTEAM VIOLETTE :)' + '\n'
+                        text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878, CARTAGENA DE INDIAS.' + '\n'
+                            + 'VILLA GRANDE DE INDIAS 2 MANZANA 23 LOTE 28.' + '\n'
+                            + 'Celular: 304 573 7344' + '\n'
                             + 'Nombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + '\n'
                             + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
                             + 'Ciudad y departamento: ' + state.printItem[i].city + ', ' + state.printItem[i].departament + '\n'
                             + 'Dirección y barrio: ' + state.printItem[i].address + ', ' + state.printItem[i].neighborhood + '\n'
                             + 'Telefono: ' + state.printItem[i].phone + '\n'
                             + 'Flete pago ' + '| |' + ' Flete contra entrega ' + '| |' + '\n'
-                            + '___________________________________________________________' + '\n';
+                            + '---------------------------------------------------------' + '\n';
                     } else { // @ts-ignore
                         if (state.printItem[i].address !== undefined && state.printItem[i].houseNumber !== undefined && state.printItem[i].tower !== undefined) {
-                            text = '\nNombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + '\n'
+                            text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878, CARTAGENA DE INDIAS ' + '\n'
+                                + 'VILLA GRANDE DE INDIAS 2 MANZANA 23 LOTE 28.' + '\n'
+                                + 'Celular: 304 573 7344' + '\n'
+                                + 'Nombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + '\n'
                                 + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
                                 + 'Ciudad y departamento: ' + state.printItem[i].city + ', ' + state.printItem[i].departament + '\n'
                                 + 'Dirección: ' + state.printItem[i].address + '\n'
@@ -99,12 +105,12 @@ export default new Vuex.Store({
                                 + 'Número de Casa o apartamento y torre: ' + state.printItem[i].houseNumber + ' ' +
                                 +'torre: ' + state.printItem[i].tower + '\n'
                                 + 'Flete pago ' + '| |' + ' Flete contra entrega ' + '| |' + '\n'
-                                + '___________________________________________________________' + '\n';
+                                + '---------------------------------------------------------' + '\n';
                         }
                     }
                 }
 
-                textPos = textPos - 100;
+                textPos = textPos - 120;
 
                 page.drawText(text, { //dibujar o escribir
                     x: 90,
