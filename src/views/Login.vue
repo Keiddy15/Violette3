@@ -38,11 +38,11 @@
                         </v-btn>
 
                     </v-card-actions>
-                    <v-card-actions class="justify-center">
+                    <!--<v-card-actions class="justify-center">
                         <v-btn @click="register" color="purple white--text" block :loading="loadingButton" large>
                             ¿No te has registrado?
                         </v-btn>
-                    </v-card-actions>
+                    </v-card-actions>-->
 
                 </v-form>
             </v-card-text>
