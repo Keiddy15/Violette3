@@ -105,7 +105,7 @@ export default new Vuex.Store({
                                 + 'Ciudad y departamento: ' + state.printItem[i].city + ', ' + state.printItem[i].departament + '\n'
                                 + 'Dirección: ' + state.printItem[i].address + '\n'
                                 + 'Telefono: ' + state.printItem[i].phone + '\n'
-                                + 'Número de Casa o apartamento y torre: ' + state.printItem[i].houseNumber + ' ' +
+                                + 'Número de Casa o apartamento y torre: ' + state.printItem[i].houseNumber + ' '
                                 +'torre: ' + state.printItem[i].tower + '\n'
                                 + 'Flete pago ' + '| |' + ' Flete contra entrega ' + '| |' + '\n'
                                 + '---------------------------------------------------------' + '\n';
