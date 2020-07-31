@@ -5,22 +5,24 @@ import FinishedForm from '../views/FinishedForm.vue'
 import Login from '../views/Login.vue'
 import Admin from '../views/Admin.vue'
 import Register from '../views/Register.vue'
+import Welcome from "../views/Welcome";
+import FormCartagena from "../views/FormCartagena";
 
 Vue.use(VueRouter);
 
 const routes = [
     {
         path: '*',
-        redirect: '/formulario'
+        redirect: '/Bienvenida'
     },
     {
         path: '/',
-        redirect: '/formulario'
+        redirect: '/Bienvenida'
     },
     {
-        path: '/formulario',
-        name: 'Form',
-        components: {main: Form}
+        path: '/Bienvenida',
+        name: 'Welcome',
+        components: {main: Welcome}
     },
     {
         path: '/Agradecimientos',
@@ -41,6 +43,16 @@ const routes = [
         path: '/Registrar',
         name: 'Register',
         components: {main: Register}
+    },
+    {
+        path: '/formularioCartagena',
+        name: 'FormCartagena',
+        components: {main: FormCartagena}
+    },
+    {
+        path: '/formulario',
+        name: 'Form',
+        components: {main: Form}
     }
 ]
 

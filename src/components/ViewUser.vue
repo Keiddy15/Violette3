@@ -57,6 +57,10 @@
                                 <v-text-field label="Lugar de entrega:" readonly
                                               v-model="userSelected.placeDelivery"></v-text-field>
                             </v-col>
+                            <v-col cols="12" sm="6" md="4">
+                                <v-text-field label="Punto de referencia:" readonly
+                                              v-model="userSelected.referencePoint"></v-text-field>
+                            </v-col>
 
 
                         </v-row>

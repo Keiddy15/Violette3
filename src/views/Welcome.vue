@@ -10,16 +10,16 @@
                     >
                     </v-img>
                     <v-card-text>
-                        <div class="text-center"><span class="headline font-weight-bold">¡Pedido terminado!</span></div>
-                        <div class="text-center">En las próximas 24 horas estarás recibiendo tu numero de guía.</div>
-                        <div class="text-center">ESPERAMOS NOS COMPARTAS UNA FOTO PARA QUE HAGAS PARTE DE NUESTRO <span
-                                class="font-weight-bold">#TEAMVIOLETTE.</span></div>
+                        <div class="text-center"><span class="headline font-weight-bold">¡Bienvenida a Violette!</span>
+                        </div>
+                        <div class="text-center">Escoge la ciudad en la que te encuentras.</div>
                     </v-card-text>
-                    <v-card-actions class="justify-center">
-                        <v-btn color="purple white--text" block large @click="submit">
-                            Inicio
-                        </v-btn>
-                    </v-card-actions>
+                    <v-btn color="purple white--text" block @click="cartagena">
+                        Cartagena
+                    </v-btn>
+                    <v-btn color="purple white--text" block @click="submit">
+                        Otra
+                    </v-btn>
                 </v-list-item-content>
             </v-list-item>
         </v-card>
@@ -28,10 +28,13 @@
 
 <script>
     export default {
-        name: "FinishedForm",
+        name: "Welcome",
         methods: {
             submit() {
-                this.$router.push({name: 'Welcome'});
+                this.$router.push({name: 'Form'});
+            },
+            cartagena() {
+                this.$router.push({name: 'FormCartagena'});
             }
         }
     }

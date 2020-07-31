@@ -2,7 +2,7 @@
     <div>
         <v-btn color="primary" :disabled="loadingData" @click="loadDataTable">Recargar datos</v-btn>
         <v-btn color="primary" :disabled="Object.keys(selected).length === 0"
-               @click="printDocument({printItem: selected})" class="ml-6">Imprimir guia(s)
+               @click="printDocumentCartagena({printItem: selected})" class="ml-6">Imprimir guia(s)
         </v-btn>
         <v-data-table
                 v-model="selected"
@@ -34,7 +34,7 @@
 
     let db = firebase.firestore();
     export default {
-        name: "Orders",
+        name: "OrdersCartagena",
         data() {
             return {
                 singleSelect: false,
@@ -103,7 +103,7 @@
             }
         },
         methods: {
-            ...vuex.mapMutations(['passingUserSelected', 'printDocument']),
+            ...vuex.mapMutations(['passingUserSelected', 'printDocumentCartagena']),
             formatDate: function (date) {
                 let dayName = date.toLocaleString('es-MX', {weekday: 'long'});
                 let day = date.getDate();
@@ -115,12 +115,12 @@
                 this.loadingData = !this.loadingData;
                 this.data = [];
                 let i = 0
-                db.collection("orders").get().then((querySnapshot) => {
+                db.collection("ordersCartagena").get().then((querySnapshot) => {
                     if (querySnapshot.empty) {
                         this.loadingData = false
                     } else {
                         querySnapshot.forEach((doc) => {
-                            db.collection('orders').get().then(querySnapshot => {
+                            db.collection('ordersCartagena').get().then(querySnapshot => {
                                 let data = doc.data();
                                 data.datePurchase = this.formatDate(new Date(data.datePurchase.seconds * 1000));
                                 data.id = i++
@@ -130,7 +130,7 @@
                         });
                     }
                 })
-            }
+            },
         }
     }
 

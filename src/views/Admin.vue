@@ -23,14 +23,32 @@
                 <v-tab>
                     Historial de pedidos
                 </v-tab>
+                <v-tab>
+                    Pedidos cartagena
+                </v-tab>
                 <v-tab-item>
                     <v-card elevation="15" color="#FFF" raised class="cardForm">
                         <v-card-text class="textUser">
-                            <h1 style="letter-spacing: 2px; line-height: 40px">Revisa el historial de los pedidos</h1>
+                            <h1 style="letter-spacing: 2px; line-height: 40px">
+                                Revisa el historial de los pedidos</h1>
                         </v-card-text>
                         <v-divider></v-divider>
                         <v-card-text>
                             <Orders/>
+                            <v-spacer></v-spacer>
+                        </v-card-text>
+                    </v-card>
+                </v-tab-item>
+                <v-tab-item>
+                    <v-card elevation="15" color="#FFF" raised class="cardForm">
+                        <v-card-text class="textUser">
+                            <h1 style="letter-spacing: 2px; line-height: 40px">
+                                Revisa el historial de los pedidos de Cartagena
+                            </h1>
+                        </v-card-text>
+                        <v-divider></v-divider>
+                        <v-card-text>
+                            <OrdersCartagena/>
                             <v-spacer></v-spacer>
                         </v-card-text>
                     </v-card>
@@ -42,6 +60,7 @@
 
 <script>
     import Orders from "@/components/Orders";
+    import OrdersCartagena from "../components/OrdersCartagena";
     import firebase from '../configFirebase'
 
     export default {
@@ -53,7 +72,7 @@
             }
         },
         components: {
-            Orders
+            Orders, OrdersCartagena
         },
         mounted() {
             if (localStorage.getItem('user')) {
