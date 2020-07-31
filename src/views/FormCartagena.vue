@@ -2,16 +2,13 @@
     <div id="app">
         <v-app class="main">
             <v-card class="main">
-                <v-card-title class="welcomeTitle d-flex justify-space-around" style="letter-spacing: 2px">
+                <v-card-title class="welcomeTitle" style="letter-spacing: 2px">
                     <img
                             src="https://firebasestorage.googleapis.com/v0/b/violette-cartagena.appspot.com/o/Logo.png?alt=media&token=1fb75a14-79f6-4ff3-87b0-a6f9d96149fc"
                             height="70px"
                             class="pr-5"
                     >
                     <h4>Violette - Sports Wear</h4>
-                    <v-btn class="mx-2" fab dark small color="primary" @click="login">
-                        <v-icon dark>mdi-account</v-icon>
-                    </v-btn>
                 </v-card-title>
             </v-card>
             <v-form v-model="valid">
