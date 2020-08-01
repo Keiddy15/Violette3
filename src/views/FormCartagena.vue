@@ -155,32 +155,25 @@
                                     clearable
                                     class="fields"
                             ></v-text-field>
-                            <v-text-field
-                                    v-if="radio.option === 'H'"
-                                    label="Punto de referencia:"
-                                    v-model='referencePoint'
-                                    required
-                                    outlined
-                                    :rules="referencePointRules"
-                                    clearable
-                                    class="fields"
-                            ></v-text-field>
                         </v-row>
 
                     </v-col>
                     <v-col cols="12" sm="12" md="12">
                         <v-row class="rowForm">
-                            <v-text-field
-                                    v-if="radio.option === 'R'"
-                                    label="Punto de referencia:"
-                                    v-model='referencePoint'
-                                    required
-                                    outlined
-                                    :rules="referencePointRules"
-                                    clearable
-                                    class="fields"
-                            >
-                            </v-text-field>
+                            <v-container fluid>
+                                <v-textarea
+                                        v-if="radio.option === 'R' || radio.option === 'H' "
+                                        v-model='referencePoint'
+                                        :rules="referencePointRules"
+                                        required
+                                        outlined
+                                        clearable
+                                        name="input-7-4"
+                                        label="Punto de referencia"
+                                        rows="3"
+                                        maxlength="200"
+                                ></v-textarea>
+                            </v-container>
                         </v-row>
                     </v-col>
                     <div class="text-center">
@@ -202,17 +195,17 @@
         data() {
             return {
                 valid: false,
-                name: '',
-                lastName: '',
-                identificationCard: '',
+                name: 'Keiddy',
+                lastName: 'García',
+                identificationCard: '1001824220',
                 city: 'Cartagena',
                 departament: 'Bolivar',
-                phone: '',
-                houseNumber: '',
-                tower: '',
+                phone: '3012508795',
+                houseNumber: '5',
+                tower: 'b',
                 neighborhood: '',
-                address: '',
-                referencePoint: '',
+                address: 'Carrera 4c #91-63',
+                referencePoint: 'Pasando por la calle del peo, bajando tres cuadras por el restaurante la mierda, llegando al bar el inodoro, y al lado del billar el baño, dos casa más adelante por el cuarto 5b keiddy garcia lopez ok',
                 validationError: false,
                 sendingError: false,
                 loadingSend: false,
