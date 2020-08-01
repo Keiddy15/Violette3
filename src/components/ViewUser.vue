@@ -58,8 +58,12 @@
                                               v-model="userSelected.placeDelivery"></v-text-field>
                             </v-col>
                             <v-col cols="12" sm="6" md="4">
-                                <v-text-field label="Punto de referencia:" readonly
-                                              v-model="userSelected.referencePoint"></v-text-field>
+                                <v-textarea
+                                        label="Punto de referencia:" readonly
+                                        v-model="userSelected.referencePoint"
+                                        rows="3"
+                                >
+                                </v-textarea>
                             </v-col>
 
 
