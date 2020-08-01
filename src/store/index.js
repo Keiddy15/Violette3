@@ -43,24 +43,24 @@ export default new Vuex.Store({
             const {width, height} = page.getSize(); //Obteniendo tamaño de pagina
             const fontSize = 10; // Ajustando tamaño fuente
             const pngImage = await pdfDoc.embedPng(pngImageBytes);
-            const pngDims = pngImage.scale(0.1);
+            const pngDims = pngImage.scale(0.09);
             page.setWidth(612);
             page.setHeight(791);
             let text = "";
             let limit = 0;
-            let suma = height - 40;
-            let textPos = height + 10;
+            let suma = height - 60;
+            let textPos = height - 10;
             for (let i in state.printItem) {
-                if (limit === 8) {
+                if (limit === 10) {
                     page = pdfDoc.addPage();
                     page.setWidth(612);
                     page.setHeight(791);
                     limit = 0;
-                    suma = height - 40;
-                    textPos = height + 10;
+                    suma = height - 60;
+                    textPos = height - 10;
                 }
 
-                suma = suma - 90;
+                suma = suma - 75;
 
                 page.drawImage(pngImage, {
                     x: 20,
@@ -70,28 +70,22 @@ export default new Vuex.Store({
 
                 });
                 if (state.printItem[i].address !== undefined && state.printItem[i].neighborhood !== undefined) {
-                    text = '\nNombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + '\n'
-                        + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
-                        + 'Ciudad y departamento: ' + state.printItem[i].city + ', ' + state.printItem[i].departament + '\n'
-                        + 'Dirección: ' + state.printItem[i].address + '\n'
-                        + 'Barrio: ' + state.printItem[i].neighborhood + '\n'
-                        + 'Punto de referencia: ' + state.printItem[i].referencePoint + '\n'
+                    text = '\nNombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + ', ' + 'Cedula: ' + state.printItem[i].identificationCard + ', ' + '\n'
+                        + 'Dirección: ' + state.printItem[i].address + ', ' + 'Barrio: ' + state.printItem[i].neighborhood + '\n'
+                        + 'Punto de referencia: ' + state.printItem[i].referencePoint + ', ' + '\n'
                         + 'Telefono: ' + state.printItem[i].phone + '\n'
-                        + 'Flete pago ' + '| |' + ' Flete contra entrega ' + '| |' + '\n'
+                        + 'Total: ' + '' + '\n'
                         + '---------------------------------------------------------' + '\n';
                 } else if (state.printItem[i].address !== undefined && state.printItem[i].houseNumber !== undefined && state.printItem[i].tower !== undefined) {
-                    text = '\nNombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + '\n'
-                        + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
-                        + 'Ciudad y departamento: ' + state.printItem[i].city + ', ' + state.printItem[i].departament + '\n'
-                        + 'Dirección: ' + state.printItem[i].address + '\n'
-                        + 'Punto de referencia: ' + state.printItem[i].referencePoint + '\n'
-                        + 'Telefono: ' + state.printItem[i].phone + '\n'
+                    text = '\nNombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + ', ' + 'Cedula: ' + state.printItem[i].identificationCard + ', ' + '\n'
+                        + 'Dirección: ' + state.printItem[i].address + ', ' + ', ' + 'Punto de referencia: ' + state.printItem[i].referencePoint + ', ' + '\n'
+                        + 'Telefono: ' + state.printItem[i].phone + ', ' + '\n'
                         + 'Número de Casa o apartamento y torre: ' + state.printItem[i].houseNumber + ' ' + state.printItem[i].tower + '\n'
-                        + 'Flete pago ' + '| |' + ' Flete contra entrega ' + '| |' + '\n'
+                        + 'Total: ' + '' + '\n'
                         + '---------------------------------------------------------' + '\n';
                 }
 
-                textPos = textPos - 90;
+                textPos = textPos - 75;
 
                 page.drawText(text, { //dibujar o escribir
                     x: 90,

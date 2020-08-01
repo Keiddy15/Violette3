@@ -31,7 +31,7 @@
                         Cartagena
                     </v-btn>
                     <v-btn color="purple white--text" block @click="submit">
-                        Otra
+                        Otra Ciudad
                     </v-btn>
                 </v-list-item-content>
             </v-list-item>
