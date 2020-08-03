@@ -70,7 +70,7 @@ export default new Vuex.Store({
 
                 });
                 if (state.printItem[i].address !== undefined && state.printItem[i].neighborhood !== undefined) {
-                    text = '\nNombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + ', ' + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
+                    text = '\nNombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + ', ' + '\n'
                         + 'Dirección: ' + state.printItem[i].address + ', ' + 'Barrio: ' + state.printItem[i].neighborhood + '\n'
                         + 'Punto de referencia: ' + state.printItem[i].referencePoint.slice(0, 57) + '\n'
                         + state.printItem[i].referencePoint.slice(58, 137) + '\n'
@@ -79,7 +79,7 @@ export default new Vuex.Store({
                         + 'Total: ' + '' + '\n'
                         + '----------------------------------------------------------------------------------' + '\n';
                 } else if (state.printItem[i].address !== undefined && state.printItem[i].houseNumber !== undefined && state.printItem[i].tower !== undefined) {
-                    text = '\nNombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + ', ' + 'Cedula: ' + state.printItem[i].identificationCard + ', ' + '\n'
+                    text = '\nNombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + ', ' + '\n'
                         + 'Dirección: ' + state.printItem[i].address + ', ' + ', ' + 'Telefono: ' + state.printItem[i].phone + ', ' + '\n'
                         + 'Punto de referencia: ' + state.printItem[i].referencePoint.slice(0, 57) + '\n'
                         + state.printItem[i].referencePoint.slice(58, 137) + '\n'

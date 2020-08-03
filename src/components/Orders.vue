@@ -1,10 +1,19 @@
 <template>
-    <div>
+    <v-card>
         <v-btn color="primary" :disabled="loadingData" @click="loadDataTable">Recargar datos</v-btn>
         <v-btn color="primary" :disabled="Object.keys(selected).length === 0"
                @click="printDocument({printItem: selected})" class="ml-6">Imprimir guia(s)
         </v-btn>
+        <v-card-title>
+            <v-text-field
+                    v-model="search"
+                    label="Buscar"
+                    single-line
+                    hide-details
+            ></v-text-field>
+        </v-card-title>
         <v-data-table
+                :search="search"
                 v-model="selected"
                 :headers="headers"
                 :items="data"
@@ -24,7 +33,12 @@
             </template>
         </v-data-table>
         <ViewUser/>
-    </div>
+        <template v-slot:no-results>
+            <v-alert :value="true" color="error" icon="warning">
+                Your search for "{{ search }}" found no results.
+            </v-alert>
+        </template>
+    </v-card>
 
 </template>
 <script>
@@ -49,6 +63,7 @@
                 user: [],
                 loadingText: 'Obteniendo datos, por favor espere...',
                 loadingData: true,
+                search: '',
                 headers: [
                     {
                         text: 'id:',

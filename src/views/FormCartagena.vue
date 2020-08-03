@@ -54,55 +54,17 @@
                     <v-col cols="12" sm="12" md="12">
                         <v-row class="rowForm">
                             <v-text-field
-                                    label="Cédula:"
-                                    v-model="identificationCard"
-                                    type="number"
-                                    :rules="identificationCardRules"
-                                    required
-                                    outlined
-                                    class="fields"
-                                    clearable
-                            ></v-text-field>
-                            <v-text-field
-                                    label="Ciudad:"
-                                    v-model='city'
-                                    required
-                                    outlined
-                                    :rules="cityRules"
-                                    class="fields"
-                                    clearable
-                            ></v-text-field>
-
-                        </v-row>
-                    </v-col>
-                    <v-col cols="12" sm="12" md="12">
-                        <v-row class="rowForm">
-                            <v-text-field
-
-                                    label="Departamento:"
-                                    v-model='departament'
-                                    required
-                                    :rules="departamentRules"
-                                    outlined
-                                    class="fields"
-                                    clearable
-                            ></v-text-field>
-                            <v-text-field
                                     label="Celular:"
                                     v-model='phone'
-                                    class="fields"
+                                    class="fields pr-10"
                                     required
                                     outlined
                                     clearable
                                     :rules="phoneRules"
                             ></v-text-field>
-                        </v-row>
-                    </v-col>
-                    <v-col cols="12" sm="12" md="12">
-                        <v-row class="rowForm">
                             <div class="radio">
                                 <label>Tipo de residencia:</label>
-                                <div class="pl-5 pt-1">
+                                <div class="pr-20">
                                     <label class="pr-2">
                                         <input type="radio" v-model="radio.option" value="R"> Conjunto residencial
                                     </label>
@@ -111,6 +73,11 @@
                                     </label>
                                 </div>
                             </div>
+                        </v-row>
+                    </v-col>
+                    <v-col cols="12" sm="12" md="12">
+                        <v-row class="rowForm">
+
                             <v-text-field
                                     v-if="radio.option === 'R' || radio.option === 'H'"
                                     label="Dirección:"
@@ -118,6 +85,16 @@
                                     required
                                     outlined
                                     :rules="addressRules"
+                                    clearable
+                                    class="fields"
+                            ></v-text-field>
+                            <v-text-field
+                                    v-if="radio.option === 'H' || radio.option === 'R'"
+                                    label="Barrio:"
+                                    v-model='neighborhood'
+                                    required
+                                    outlined
+                                    :rules="neighborhoodRules"
                                     clearable
                                     class="fields"
                             ></v-text-field>
@@ -145,22 +122,11 @@
                                     clearable
                                     class="fields"
                             ></v-text-field>
-                            <v-text-field
-                                    v-if="radio.option === 'H'"
-                                    label="Barrio:"
-                                    v-model='neighborhood'
-                                    required
-                                    outlined
-                                    :rules="neighborhoodRules"
-                                    clearable
-                                    class="fields"
-                            ></v-text-field>
                         </v-row>
 
                     </v-col>
                     <v-col cols="12" sm="12" md="12">
                         <v-row class="rowForm">
-                            <v-container fluid>
                                 <v-textarea
                                         v-if="radio.option === 'R' || radio.option === 'H' "
                                         v-model='referencePoint'
@@ -173,7 +139,6 @@
                                         rows="3"
                                         maxlength="200"
                                 ></v-textarea>
-                            </v-container>
                         </v-row>
                     </v-col>
                     <div class="text-center">
@@ -197,9 +162,6 @@
                 valid: false,
                 name: '',
                 lastName: '',
-                identificationCard: '',
-                city: '',
-                departament: '',
                 phone: '',
                 houseNumber: '',
                 tower: '',
@@ -219,15 +181,6 @@
                 ],
                 lastNameRules: [
                     v => !!v || 'Los apellidos son requeridos.'
-                ],
-                identificationCardRules: [
-                    v => !!v || 'La cédula es requerida.'
-                ],
-                cityRules: [
-                    v => !!v || 'La ciudad es requerida.'
-                ],
-                departamentRules: [
-                    v => !!v || 'El departamento es requerido.'
                 ],
                 neighborhoodRules: [
                     v => !!v || 'El barrio es requerido.'
@@ -255,17 +208,14 @@
                 let orders = db.collection('ordersCartagena');
                 let H = (
                     this.name !== '' && this.lastName !== '' &&
-                    this.identificationCard !== '' && this.city !== '' &&
-                    this.departament !== '' && this.phone !== '' &&
-                    this.address !== '' && this.neighborhood !== '' &&
-                    this.referencePoint !== ''
+                    this.phone !== '' && this.address !== '' &&
+                    this.neighborhood !== '' && this.referencePoint !== ''
                 )
                 let R = (
                     this.name !== '' && this.lastName !== '' &&
-                    this.identificationCard !== '' && this.city !== '' &&
-                    this.departament !== '' && this.phone !== '' &&
-                    this.address !== '' && this.houseNumber !== '' &&
-                    this.referencePoint !== ''
+                    this.phone !== '' && this.address !== '' &&
+                    this.houseNumber !== '' && this.referencePoint !== '' &&
+                    this.neighborhood !== ''
                 )
                 if (H) {
                     this.loadingSend = true
@@ -274,10 +224,6 @@
                         id: this.id,
                         datePurchase: new Date(),
                         name: this.name,
-                        lastName: this.lastName,
-                        identificationCard: this.identificationCard,
-                        city: this.city,
-                        departament: this.departament,
                         phone: this.phone,
                         address: this.address,
                         neighborhood: this.neighborhood,
@@ -298,9 +244,6 @@
                         datePurchase: new Date(),
                         name: this.name,
                         lastName: this.lastName,
-                        identificationCard: this.identificationCard,
-                        city: this.city,
-                        departament: this.departament,
                         phone: this.phone,
                         address: this.address,
                         houseNumber: this.houseNumber,
@@ -360,5 +303,6 @@
     .radio {
         padding-right: 365px;
     }
+
 
 </style>
