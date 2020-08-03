@@ -137,7 +137,7 @@
                                         name="input-7-4"
                                         label="Punto de referencia"
                                         rows="3"
-                                        maxlength="200"
+                                        maxlength="140"
                                 ></v-textarea>
                         </v-row>
                     </v-col>

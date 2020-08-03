@@ -73,8 +73,7 @@ export default new Vuex.Store({
                     text = '\nNombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + ', ' + '\n'
                         + 'Dirección: ' + state.printItem[i].address + ', ' + 'Barrio: ' + state.printItem[i].neighborhood + '\n'
                         + 'Punto de referencia: ' + state.printItem[i].referencePoint.slice(0, 57) + '\n'
-                        + state.printItem[i].referencePoint.slice(58, 137) + '\n'
-                        + state.printItem[i].referencePoint.slice(138, 200) + '\n'
+                        + state.printItem[i].referencePoint.slice(58, 140) + '\n'
                         + 'Telefono: ' + state.printItem[i].phone + '\n'
                         + 'Total: ' + '' + '\n'
                         + '----------------------------------------------------------------------------------' + '\n';
@@ -82,8 +81,7 @@ export default new Vuex.Store({
                     text = '\nNombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + ', ' + '\n'
                         + 'Dirección: ' + state.printItem[i].address + ', ' + ', ' + 'Telefono: ' + state.printItem[i].phone + ', ' + '\n'
                         + 'Punto de referencia: ' + state.printItem[i].referencePoint.slice(0, 57) + '\n'
-                        + state.printItem[i].referencePoint.slice(58, 137) + '\n'
-                        + state.printItem[i].referencePoint.slice(138, 200) + '\n'
+                        + state.printItem[i].referencePoint.slice(58, 140) + '\n'
                         + 'Número de Casa o apartamento y torre: ' + state.printItem[i].houseNumber + ' ' + state.printItem[i].tower + '\n'
                         + 'Total: ' + '' + '\n'
                         + '----------------------------------------------------------------------------------' + '\n';
