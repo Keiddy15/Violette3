@@ -224,6 +224,7 @@
                         id: this.id,
                         datePurchase: new Date(),
                         name: this.name,
+                        lastName: this.lastName,
                         phone: this.phone,
                         address: this.address,
                         neighborhood: this.neighborhood,
