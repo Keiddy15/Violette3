@@ -70,10 +70,6 @@
                         value: 'id'
                     },
                     {
-                        text: 'Cédula: ',
-                        value: 'identificationCard'
-                    },
-                    {
                         text: 'Nombre: ',
                         value: 'name',
                     },
@@ -84,13 +80,6 @@
                     {
                         text: 'Teléfono: ',
                         value: 'phone'
-                    },
-                    {
-                        text: 'Ciudad: ',
-                        value: 'city'
-                    }, {
-                        text: 'Departamento: ',
-                        value: 'departament'
                     },
                     {
                         text: 'Fecha de Pedido',
