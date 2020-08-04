@@ -56,8 +56,8 @@ export default new Vuex.Store({
                     page.setWidth(612);
                     page.setHeight(791);
                     limit = 0;
-                    suma = height - 60;
-                    textPos = height - 10;
+                    suma = height - 30;
+                    textPos = height + 15;
                 }
 
                 suma = suma - 90;
@@ -119,24 +119,24 @@ export default new Vuex.Store({
             const {width, height} = page.getSize(); //Obteniendo tamaño de pagina
             const fontSize = 10; // Ajustando tamaño fuente
             const pngImage = await pdfDoc.embedPng(pngImageBytes);
-            const pngDims = pngImage.scale(0.1);
+            const pngDims = pngImage.scale(0.09);
             page.setWidth(612);
             page.setHeight(791);
             let text = "";
             let limit = 0;
-            let suma = height - 40;
-            let textPos = height + 10;
+            let suma = height + 10;
+            let textPos = height + 50;
             for (let i in state.printItem) {
                 if (limit === 6) {
                     page = pdfDoc.addPage();
                     page.setWidth(612);
                     page.setHeight(791);
                     limit = 0;
-                    suma = height - 40;
-                    textPos = height + 10;
+                    suma = height + 10;
+                    textPos = height + 50;
                 }
 
-                suma = suma - 120;
+                suma = suma - 130;
 
                 page.drawImage(pngImage, {
                     x: 20,
@@ -151,26 +151,30 @@ export default new Vuex.Store({
                         + 'VILLA GRANDE DE INDIAS 2 MANZANA 23 LOTE 28.' + '\n'
                         + 'Celular: 304 573 7344' + '\n'
                         + '' + '\n'
-                        + 'Nombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + '\n'
+                        + 'Nombre: ' + state.printItem[i].name + '\n'
+                        + 'Apellido: ' + state.printItem[i].lastName + '\n'
                         + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
-                        + 'Ciudad y departamento: ' + state.printItem[i].city + ', ' + state.printItem[i].departament + '\n'
+                        + 'Ciudad: ' + state.printItem[i].city + ', ' + state.printItem[i].departament + '\n'
+                        + 'Departamento: ' + state.printItem[i].departament + '\n'
                         + 'Telefono: ' + state.printItem[i].phone + '\n'
                         + 'Lugar de entrega: ' + state.printItem[i].placeDelivery + '\n'
                         + 'Flete pago ' + '| |' + ' Flete contra entrega ' + '| |' + '\n'
-                        + '---------------------------------------------------------' + '\n';
+                        + '_______________________________________________________________________________' + '\n';
                 } else { // @ts-ignore
                     if (state.printItem[i].address !== undefined && state.printItem[i].neighborhood !== undefined) {
                         text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878.233, CARTAGENA DE INDIAS.' + '\n'
                             + 'VILLA GRANDE DE INDIAS 2 MANZANA 23 LOTE 28.' + '\n'
                             + 'Celular: 304 573 7344' + '\n'
                             + '' + '\n'
-                            + 'Nombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + '\n'
+                            + 'Nombre: ' + state.printItem[i].name  + '\n'
+                            + 'Apellido: ' + state.printItem[i].lastName + '\n'
                             + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
                             + 'Ciudad y departamento: ' + state.printItem[i].city + ', ' + state.printItem[i].departament + '\n'
-                            + 'Dirección y barrio: ' + state.printItem[i].address + ', ' + state.printItem[i].neighborhood + '\n'
+                            + 'Dirección: ' + state.printItem[i].address + '\n'
+                            + 'Barrio: ' + state.printItem[i].neighborhood + '\n'
                             + 'Telefono: ' + state.printItem[i].phone + '\n'
                             + 'Flete pago ' + '| |' + ' Flete contra entrega ' + '| |' + '\n'
-                            + '---------------------------------------------------------' + '\n';
+                            + '_______________________________________________________________________________' + '\n';
                     } else { // @ts-ignore
                         if (state.printItem[i].address !== undefined && state.printItem[i].houseNumber !== undefined && state.printItem[i].tower !== undefined) {
                             text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878.233, CARTAGENA DE INDIAS ' + '\n'
@@ -182,15 +186,15 @@ export default new Vuex.Store({
                                 + 'Ciudad y departamento: ' + state.printItem[i].city + ', ' + state.printItem[i].departament + '\n'
                                 + 'Dirección: ' + state.printItem[i].address + '\n'
                                 + 'Telefono: ' + state.printItem[i].phone + '\n'
-                                + 'Número de Casa o apartamento y torre: ' + state.printItem[i].houseNumber + ' '
-                                + 'torre: ' + state.printItem[i].tower + '\n'
+                                + 'Número de Casa o apartamento: ' + state.printItem[i].houseNumber + ' ' + '\n'
+                                + 'Torre: ' + state.printItem[i].tower + '\n'
                                 + 'Flete pago ' + '| |' + ' Flete contra entrega ' + '| |' + '\n'
-                                + '---------------------------------------------------------' + '\n';
+                                + '_______________________________________________________________________________' + '\n';
                         }
                     }
                 }
 
-                textPos = textPos - 120;
+                textPos = textPos - 125;
 
                 page.drawText(text, { //dibujar o escribir
                     x: 90,
@@ -198,7 +202,7 @@ export default new Vuex.Store({
                     size: fontSize,
                     font: courier,
                     color: rgb(0, 0, 0),
-                    lineHeight: 10
+                    lineHeight: 9
                 });
                 limit++;
 
