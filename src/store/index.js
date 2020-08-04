@@ -48,10 +48,10 @@ export default new Vuex.Store({
             page.setHeight(791);
             let text = "";
             let limit = 0;
-            let suma = height - 60;
-            let textPos = height - 10;
+            let suma = height - 30;
+            let textPos = height + 15;
             for (let i in state.printItem) {
-                if (limit === 10) {
+                if (limit === 8) {
                     page = pdfDoc.addPage();
                     page.setWidth(612);
                     page.setHeight(791);
@@ -60,7 +60,7 @@ export default new Vuex.Store({
                     textPos = height - 10;
                 }
 
-                suma = suma - 75;
+                suma = suma - 90;
 
                 page.drawImage(pngImage, {
                     x: 20,
@@ -69,25 +69,30 @@ export default new Vuex.Store({
                     height: pngDims.height
 
                 });
-                if (state.printItem[i].address !== undefined && state.printItem[i].neighborhood !== undefined) {
+                if (state.printItem[i].address !== undefined && state.printItem[i].houseNumber !== undefined && state.printItem[i].tower !== undefined) {
                     text = '\nNombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + ', ' + '\n'
-                        + 'Dirección: ' + state.printItem[i].address + ', ' + 'Barrio: ' + state.printItem[i].neighborhood + '\n'
-                        + 'Punto de referencia: ' + state.printItem[i].referencePoint.slice(0, 57) + '\n'
-                        + state.printItem[i].referencePoint.slice(58, 140) + '\n'
-                        + 'Telefono: ' + state.printItem[i].phone + '\n'
-                        + 'Total: ' + '' + '\n'
-                        + '----------------------------------------------------------------------------------' + '\n';
-                } else if (state.printItem[i].address !== undefined && state.printItem[i].houseNumber !== undefined && state.printItem[i].tower !== undefined) {
-                    text = '\nNombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + ', ' + '\n'
-                        + 'Dirección: ' + state.printItem[i].address + ', ' + ', ' + 'Telefono: ' + state.printItem[i].phone + ', ' + '\n'
+                        + 'Telefono: ' + state.printItem[i].phone + ', ' + '\n'
+                        + 'Dirección: ' + state.printItem[i].address + ', ' + '\n'
+                        + 'Barrio: ' + state.printItem[i].address + ', ' + '\n'
                         + 'Punto de referencia: ' + state.printItem[i].referencePoint.slice(0, 57) + '\n'
                         + state.printItem[i].referencePoint.slice(58, 140) + '\n'
                         + 'Número de Casa o apartamento y torre: ' + state.printItem[i].houseNumber + ' ' + state.printItem[i].tower + '\n'
                         + 'Total: ' + '' + '\n'
-                        + '----------------------------------------------------------------------------------' + '\n';
+                        + '_______________________________________________________________________________' + '\n';
+                } else if (state.printItem[i].address !== undefined && state.printItem[i].neighborhood !== undefined) {
+                    text = '\n'
+                        + 'Nombres: ' + state.printItem[i].name + ', ' + '\n'
+                        + 'Apellidos: ' + state.printItem[i].lastName + ', ' + '\n'
+                        + 'Dirección: ' + state.printItem[i].address + ', ' + '\n'
+                        + 'Barrio: ' + state.printItem[i].neighborhood + '\n'
+                        + 'Punto de referencia: ' + state.printItem[i].referencePoint.slice(0, 57) + '\n'
+                        + state.printItem[i].referencePoint.slice(58, 140) + '\n'
+                        + 'Telefono: ' + state.printItem[i].phone + '\n'
+                        + 'Total: ' + '' + '\n'
+                        + '_______________________________________________________________________________' + '\n';
                 }
 
-                textPos = textPos - 75;
+                textPos = textPos - 90;
 
                 page.drawText(text, { //dibujar o escribir
                     x: 90,
@@ -95,7 +100,7 @@ export default new Vuex.Store({
                     size: fontSize,
                     font: courier,
                     color: rgb(0, 0, 0),
-                    lineHeight: 10
+                    lineHeight: 9
                 });
                 limit++;
 

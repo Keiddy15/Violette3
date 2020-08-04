@@ -61,6 +61,7 @@
                                     outlined
                                     clearable
                                     :rules="phoneRules"
+                                    maxlength="10"
                             ></v-text-field>
                             <div class="radio">
                                 <label>Tipo de residencia:</label>
@@ -87,6 +88,7 @@
                                     :rules="addressRules"
                                     clearable
                                     class="fields"
+                                    maxlength="65"
                             ></v-text-field>
                             <v-text-field
                                     v-if="radio.option === 'H' || radio.option === 'R'"
@@ -97,6 +99,7 @@
                                     :rules="neighborhoodRules"
                                     clearable
                                     class="fields"
+                                    maxlength="50"
                             ></v-text-field>
                         </v-row>
                     </v-col>
@@ -112,6 +115,7 @@
                                     :rules="houseNumberRules"
                                     clearable
                                     class="fields"
+                                    maxlength="10"
                             ></v-text-field>
                             <v-text-field
                                     v-if="radio.option === 'R'"
@@ -121,24 +125,25 @@
                                     outlined
                                     clearable
                                     class="fields"
+                                    maxlength="10"
                             ></v-text-field>
                         </v-row>
 
                     </v-col>
                     <v-col cols="12" sm="12" md="12">
                         <v-row class="rowForm">
-                                <v-textarea
-                                        v-if="radio.option === 'R' || radio.option === 'H' "
-                                        v-model='referencePoint'
-                                        :rules="referencePointRules"
-                                        required
-                                        outlined
-                                        clearable
-                                        name="input-7-4"
-                                        label="Punto de referencia"
-                                        rows="3"
-                                        maxlength="140"
-                                ></v-textarea>
+                            <v-textarea
+                                    v-if="radio.option === 'R' || radio.option === 'H' "
+                                    v-model='referencePoint'
+                                    :rules="referencePointRules"
+                                    required
+                                    outlined
+                                    clearable
+                                    name="input-7-4"
+                                    label="Punto de referencia"
+                                    rows="3"
+                                    maxlength="140"
+                            ></v-textarea>
                         </v-row>
                     </v-col>
                     <div class="text-center">
@@ -214,31 +219,11 @@
                 let R = (
                     this.name !== '' && this.lastName !== '' &&
                     this.phone !== '' && this.address !== '' &&
-                    this.houseNumber !== '' && this.referencePoint !== '' &&
-                    this.neighborhood !== ''
-                )
-                if (H) {
-                    this.loadingSend = true
+                    this.houseNumber !== '' && this.neighborhood !== '' &&
+                    this.referencePoint !== ''
 
-                    orders.add({
-                        id: this.id,
-                        datePurchase: new Date(),
-                        name: this.name,
-                        lastName: this.lastName,
-                        phone: this.phone,
-                        address: this.address,
-                        neighborhood: this.neighborhood,
-                        referencePoint: this.referencePoint
-                    }).then(() => {
-                        setTimeout(() => {
-                            this.$router.push({name: 'FinishedForm'});
-                        }, 2000);
-                    }).catch(() => {
-                        this.sendingError = true;
-                        this.validationError = false;
-                    });
-                    this.validationError = false;
-                } else if (R) {
+                )
+                if (R) {
                     this.loadingSend = true
                     orders.add({
                         id: this.id,
@@ -249,6 +234,27 @@
                         address: this.address,
                         houseNumber: this.houseNumber,
                         tower: this.tower,
+                        referencePoint: this.referencePoint
+                    }).then(() => {
+                        setTimeout(() => {
+                            this.$router.push({name: 'FinishedForm'});
+                        }, 2000);
+                    }).catch(() => {
+                        this.sendingError = true;
+                        this.validationError = false;
+                    });
+                    this.validationError = false;
+                } else if (H) {
+                    this.loadingSend = true
+
+                    orders.add({
+                        id: this.id,
+                        datePurchase: new Date(),
+                        name: this.name,
+                        lastName: this.lastName,
+                        phone: this.phone,
+                        address: this.address,
+                        neighborhood: this.neighborhood,
                         referencePoint: this.referencePoint
                     }).then(() => {
                         setTimeout(() => {
