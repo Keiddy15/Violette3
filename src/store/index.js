@@ -184,11 +184,10 @@ export default new Vuex.Store({
                                 + 'Nombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + '\n'
                                 + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
                                 + 'Ciudad y departamento: ' + state.printItem[i].city + ', ' + state.printItem[i].departament + '\n'
-                                + 'Dirección: ' + state.printItem[i].address.slice(0, 70) + '\n'
-                                + state.printItem[i].address.slice(70, 100) + '\n'
+                                + 'Dirección: ' + state.printItem[i].address + '\n'
+                                + 'Barrio: ' + state.printItem[i].neighborhood + '\n'
                                 + 'Telefono: ' + state.printItem[i].phone + '\n'
-                                + 'Número de Casa o apartamento: ' + state.printItem[i].houseNumber + ' ' + '\n'
-                                + 'Torre: ' + state.printItem[i].tower + '\n'
+                                + 'Número de Casa o apartamento: ' + state.printItem[i].houseNumber + ' y ' + 'Torre: ' + state.printItem[i].tower + '\n'
                                 + 'Flete pago ' + '| |' + ' Flete contra entrega ' + '| |' + '\n'
                                 + '_______________________________________________________________________________' + '\n';
                         }

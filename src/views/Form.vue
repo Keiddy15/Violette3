@@ -95,6 +95,7 @@
                                     outlined
                                     clearable
                                     :rules="phoneRules"
+                                    maxlength="10"
                             ></v-text-field>
                         </v-row>
                     </v-col>
@@ -124,6 +125,7 @@
                                     :rules="addressRules"
                                     clearable
                                     class="fields"
+                                    maxlength="65"
                             ></v-text-field>
                             <v-text-field
                                     v-if="radio.option === 'WC'"
@@ -134,12 +136,24 @@
                                     :rules="placeDeliveryRules"
                                     clearable
                                     class="fields"
+                                    maxlength="60"
                             ></v-text-field>
                         </v-row>
                     </v-col>
 
                     <v-col cols="12" sm="12" md="12">
                         <v-row class="rowForm">
+                            <v-text-field
+                                    v-if="radio.option === 'R' || radio.option === 'H'"
+                                    label="Barrio:"
+                                    v-model='neighborhood'
+                                    required
+                                    outlined
+                                    :rules="neighborhoodRules"
+                                    clearable
+                                    class="fields"
+                                    maxlength="50"
+                            ></v-text-field>
                             <v-text-field
                                     v-if="radio.option === 'R'"
                                     label="Número de casa o aparatamento:"
@@ -149,7 +163,13 @@
                                     :rules="houseNumberRules"
                                     clearable
                                     class="fields"
+                                    maxlength="10"
                             ></v-text-field>
+                        </v-row>
+
+                    </v-col>
+                    <v-col cols="12" sm="12" md="12">
+                        <v-row>
                             <v-text-field
                                     v-if="radio.option === 'R'"
                                     label="Torre:"
@@ -158,19 +178,9 @@
                                     outlined
                                     clearable
                                     class="fields"
-                            ></v-text-field>
-                            <v-text-field
-                                    v-if="radio.option === 'H'"
-                                    label="Barrio:"
-                                    v-model='neighborhood'
-                                    required
-                                    outlined
-                                    :rules="neighborhoodRules"
-                                    clearable
-                                    class="fields"
+                                    maxlength="10"
                             ></v-text-field>
                         </v-row>
-
                     </v-col>
                     <div class="text-center">
                         <v-btn class="purple  white--text" :loading="loadingSend" block large @click="submit">Enviar
@@ -259,7 +269,8 @@
                     this.name !== '' && this.lastName !== '' &&
                     this.identificationCard !== '' && this.city !== '' &&
                     this.departament !== '' && this.phone !== '' &&
-                    this.address !== '' && this.houseNumber !== ''
+                    this.address !== '' && this.houseNumber !== '' &&
+                    this.neighborhood !== ''
                 )
                 let WC = (
                     this.name !== '' && this.lastName !== '' &&
@@ -267,7 +278,31 @@
                     this.departament !== '' && this.phone !== '' &&
                     this.placeDelivery !== ''
                 )
-                if (H) {
+                if (R) {
+                    this.loadingSend = true
+                    orders.add({
+                        id: this.id,
+                        datePurchase: new Date(),
+                        name: this.name,
+                        lastName: this.lastName,
+                        identificationCard: this.identificationCard,
+                        city: this.city,
+                        departament: this.departament,
+                        phone: this.phone,
+                        address: this.address,
+                        houseNumber: this.houseNumber,
+                        tower: this.tower,
+                        neighborhood: this.neighborhood
+                    }).then(() => {
+                        setTimeout(() => {
+                            this.$router.push({name: 'FinishedForm'});
+                        }, 2000);
+                    }).catch(() => {
+                        this.sendingError = true;
+                        this.validationError = false;
+                    });
+                    this.validationError = false;
+                } else if (H) {
                     this.loadingSend = true
 
                     orders.add({
@@ -281,29 +316,6 @@
                         phone: this.phone,
                         address: this.address,
                         neighborhood: this.neighborhood
-                    }).then(() => {
-                        setTimeout(() => {
-                            this.$router.push({name: 'FinishedForm'});
-                        }, 2000);
-                    }).catch(() => {
-                        this.sendingError = true;
-                        this.validationError = false;
-                    });
-                    this.validationError = false;
-                } else if (R) {
-                    this.loadingSend = true
-                    orders.add({
-                        id: this.id,
-                        datePurchase: new Date(),
-                        name: this.name,
-                        lastName: this.lastName,
-                        identificationCard: this.identificationCard,
-                        city: this.city,
-                        departament: this.departament,
-                        phone: this.phone,
-                        address: this.address,
-                        houseNumber: this.houseNumber,
-                        tower: this.tower
                     }).then(() => {
                         setTimeout(() => {
                             this.$router.push({name: 'FinishedForm'});
