@@ -166,7 +166,7 @@ export default new Vuex.Store({
                             + 'VILLA GRANDE DE INDIAS 2 MANZANA 23 LOTE 28.' + '\n'
                             + 'Celular: 304 573 7344' + '\n'
                             + '' + '\n'
-                            + 'Nombre: ' + state.printItem[i].name  + '\n'
+                            + 'Nombre: ' + state.printItem[i].name + '\n'
                             + 'Apellido: ' + state.printItem[i].lastName + '\n'
                             + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
                             + 'Ciudad y departamento: ' + state.printItem[i].city + ', ' + state.printItem[i].departament + '\n'
@@ -184,7 +184,8 @@ export default new Vuex.Store({
                                 + 'Nombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + '\n'
                                 + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
                                 + 'Ciudad y departamento: ' + state.printItem[i].city + ', ' + state.printItem[i].departament + '\n'
-                                + 'Dirección: ' + state.printItem[i].address + '\n'
+                                + 'Dirección: ' + state.printItem[i].address.slice(0, 70) + '\n'
+                                + state.printItem[i].address.slice(70, 100) + '\n'
                                 + 'Telefono: ' + state.printItem[i].phone + '\n'
                                 + 'Número de Casa o apartamento: ' + state.printItem[i].houseNumber + ' ' + '\n'
                                 + 'Torre: ' + state.printItem[i].tower + '\n'
@@ -194,7 +195,7 @@ export default new Vuex.Store({
                     }
                 }
 
-                textPos = textPos - 125;
+                textPos = textPos - 128;
 
                 page.drawText(text, { //dibujar o escribir
                     x: 90,
