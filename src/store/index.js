@@ -154,7 +154,7 @@ export default new Vuex.Store({
                         + 'Nombre: ' + state.printItem[i].name + '\n'
                         + 'Apellido: ' + state.printItem[i].lastName + '\n'
                         + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
-                        + 'Ciudad: ' + state.printItem[i].city + ', ' + state.printItem[i].departament + '\n'
+                        + 'Ciudad: ' + state.printItem[i].city + '\n'
                         + 'Departamento: ' + state.printItem[i].departament + '\n'
                         + 'Telefono: ' + state.printItem[i].phone + '\n'
                         + 'Lugar de entrega: ' + state.printItem[i].placeDelivery + '\n'
