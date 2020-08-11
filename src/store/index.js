@@ -145,7 +145,6 @@ export default new Vuex.Store({
                     height: pngDims.height
 
                 });
-                // @ts-ignore
                 if (state.printItem[i].placeDelivery !== undefined) {
                     text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878.233, CARTAGENA DE INDIAS' + '\n'
                         + 'VILLA GRANDE DE INDIAS 2 MANZANA 23 LOTE 28.' + '\n'
@@ -160,38 +159,34 @@ export default new Vuex.Store({
                         + 'Lugar de entrega: ' + state.printItem[i].placeDelivery + '\n'
                         + 'Flete pago ' + '| |' + ' Flete contra entrega ' + '| |' + '\n'
                         + '_______________________________________________________________________________' + '\n';
-                } else { // @ts-ignore
-                    if (state.printItem[i].address !== undefined && state.printItem[i].neighborhood !== undefined) {
-                        text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878.233, CARTAGENA DE INDIAS.' + '\n'
-                            + 'VILLA GRANDE DE INDIAS 2 MANZANA 23 LOTE 28.' + '\n'
-                            + 'Celular: 304 573 7344' + '\n'
-                            + '' + '\n'
-                            + 'Nombre: ' + state.printItem[i].name + '\n'
-                            + 'Apellido: ' + state.printItem[i].lastName + '\n'
-                            + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
-                            + 'Ciudad y departamento: ' + state.printItem[i].city + ', ' + state.printItem[i].departament + '\n'
-                            + 'Dirección: ' + state.printItem[i].address + '\n'
-                            + 'Barrio: ' + state.printItem[i].neighborhood + '\n'
-                            + 'Telefono: ' + state.printItem[i].phone + '\n'
-                            + 'Flete pago ' + '| |' + ' Flete contra entrega ' + '| |' + '\n'
-                            + '_______________________________________________________________________________' + '\n';
-                    } else { // @ts-ignore
-                        if (state.printItem[i].address !== undefined && state.printItem[i].houseNumber !== undefined && state.printItem[i].tower !== undefined) {
-                            text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878.233, CARTAGENA DE INDIAS ' + '\n'
-                                + 'VILLA GRANDE DE INDIAS 2 MANZANA 23 LOTE 28.' + '\n'
-                                + 'Celular: 304 573 7344' + '\n'
-                                + '' + '\n'
-                                + 'Nombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + '\n'
-                                + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
-                                + 'Ciudad y departamento: ' + state.printItem[i].city + ', ' + state.printItem[i].departament + '\n'
-                                + 'Dirección: ' + state.printItem[i].address + '\n'
-                                + 'Barrio: ' + state.printItem[i].neighborhood + '\n'
-                                + 'Telefono: ' + state.printItem[i].phone + '\n'
-                                + 'Número de Casa o apartamento: ' + state.printItem[i].houseNumber + ' y ' + 'Torre: ' + state.printItem[i].tower + '\n'
-                                + 'Flete pago ' + '| |' + ' Flete contra entrega ' + '| |' + '\n'
-                                + '_______________________________________________________________________________' + '\n';
-                        }
-                    }
+                } else if (state.printItem[i].address !== undefined && state.printItem[i].houseNumber !== undefined && state.printItem[i].tower !== undefined) {
+                    text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878.233, CARTAGENA DE INDIAS ' + '\n'
+                        + 'VILLA GRANDE DE INDIAS 2 MANZANA 23 LOTE 28.' + '\n'
+                        + 'Celular: 304 573 7344' + '\n'
+                        + '' + '\n'
+                        + 'Nombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + '\n'
+                        + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
+                        + 'Ciudad y departamento: ' + state.printItem[i].city + ', ' + state.printItem[i].departament + '\n'
+                        + 'Dirección: ' + state.printItem[i].address + '\n'
+                        + 'Barrio: ' + state.printItem[i].neighborhood + '\n'
+                        + 'Telefono: ' + state.printItem[i].phone + '\n'
+                        + 'Número de Casa o apartamento: ' + state.printItem[i].houseNumber + ' y ' + 'Torre: ' + state.printItem[i].tower + '\n'
+                        + 'Flete pago ' + '| |' + ' Flete contra entrega ' + '| |' + '\n'
+                        + '_______________________________________________________________________________' + '\n';
+                } else if (state.printItem[i].address !== undefined && state.printItem[i].neighborhood !== undefined) {
+                    text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878.233, CARTAGENA DE INDIAS.' + '\n'
+                        + 'VILLA GRANDE DE INDIAS 2 MANZANA 23 LOTE 28.' + '\n'
+                        + 'Celular: 304 573 7344' + '\n'
+                        + '' + '\n'
+                        + 'Nombre: ' + state.printItem[i].name + '\n'
+                        + 'Apellido: ' + state.printItem[i].lastName + '\n'
+                        + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
+                        + 'Ciudad y departamento: ' + state.printItem[i].city + ', ' + state.printItem[i].departament + '\n'
+                        + 'Dirección: ' + state.printItem[i].address + '\n'
+                        + 'Barrio: ' + state.printItem[i].neighborhood + '\n'
+                        + 'Telefono: ' + state.printItem[i].phone + '\n'
+                        + 'Flete pago ' + '| |' + ' Flete contra entrega ' + '| |' + '\n'
+                        + '_______________________________________________________________________________' + '\n';
                 }
 
                 textPos = textPos - 128;
