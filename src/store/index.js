@@ -71,12 +71,12 @@ export default new Vuex.Store({
                 });
                 if (state.printItem[i].address !== undefined && state.printItem[i].houseNumber !== undefined && state.printItem[i].tower !== undefined) {
                     text = '\nNombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + ', ' + '\n'
-                        + 'Telefono: ' + state.printItem[i].phone + ', ' + '\n'
                         + 'Dirección: ' + state.printItem[i].address + ', ' + '\n'
                         + 'Barrio: ' + state.printItem[i].address + ', ' + '\n'
                         + 'Punto de referencia: ' + state.printItem[i].referencePoint.slice(0, 57) + '\n'
                         + state.printItem[i].referencePoint.slice(58, 140) + '\n'
                         + 'Número de Casa o apartamento y torre: ' + state.printItem[i].houseNumber + ' ' + state.printItem[i].tower + '\n'
+                        + 'Telefono: ' + state.printItem[i].phone + ', ' + '\n'
                         + 'Total: ' + '' + '\n'
                         + '_______________________________________________________________________________' + '\n';
                 } else if (state.printItem[i].address !== undefined && state.printItem[i].neighborhood !== undefined) {
@@ -155,8 +155,8 @@ export default new Vuex.Store({
                         + 'Cedula: ' + state.printItem[i].identificationCard + '\n'
                         + 'Ciudad: ' + state.printItem[i].city + '\n'
                         + 'Departamento: ' + state.printItem[i].departament + '\n'
-                        + 'Telefono: ' + state.printItem[i].phone + '\n'
                         + 'Lugar de entrega: ' + state.printItem[i].placeDelivery + '\n'
+                        + 'Telefono: ' + state.printItem[i].phone + '\n'
                         + 'Flete pago ' + '| |' + ' Flete contra entrega ' + '| |' + '\n'
                         + '_______________________________________________________________________________' + '\n';
                 } else if (state.printItem[i].address !== undefined && state.printItem[i].houseNumber !== undefined && state.printItem[i].tower !== undefined) {
@@ -169,8 +169,8 @@ export default new Vuex.Store({
                         + 'Ciudad y departamento: ' + state.printItem[i].city + ', ' + state.printItem[i].departament + '\n'
                         + 'Dirección: ' + state.printItem[i].address + '\n'
                         + 'Barrio: ' + state.printItem[i].neighborhood + '\n'
-                        + 'Telefono: ' + state.printItem[i].phone + '\n'
                         + 'Número de Casa o apartamento: ' + state.printItem[i].houseNumber + ' y ' + 'Torre: ' + state.printItem[i].tower + '\n'
+                        + 'Telefono: ' + state.printItem[i].phone + '\n'
                         + 'Flete pago ' + '| |' + ' Flete contra entrega ' + '| |' + '\n'
                         + '_______________________________________________________________________________' + '\n';
                 } else if (state.printItem[i].address !== undefined && state.printItem[i].neighborhood !== undefined) {
