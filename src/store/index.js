@@ -146,8 +146,8 @@ export default new Vuex.Store({
 
                 });
                 if (state.printItem[i].placeDelivery !== undefined) {
-                    text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878.233, CARTAGENA DE INDIAS' + '\n'
-                        + 'VILLA GRANDE DE INDIAS 2 MANZANA 23 LOTE 28.' + '\n'
+                    text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878.233, BARRANQUILLA, ATLÁNTICO' + '\n'
+                        + 'SAN LUIS, CARRERA 4C #91-63' + '\n'
                         + 'Celular: 304 573 7344' + '\n'
                         + '' + '\n'
                         + 'Nombre: ' + state.printItem[i].name + '\n'
@@ -160,8 +160,8 @@ export default new Vuex.Store({
                         + 'Flete pago ' + '| |' + ' Flete contra entrega ' + '| |' + '\n'
                         + '_______________________________________________________________________________' + '\n';
                 } else if (state.printItem[i].address !== undefined && state.printItem[i].houseNumber !== undefined && state.printItem[i].tower !== undefined) {
-                    text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878.233, CARTAGENA DE INDIAS ' + '\n'
-                        + 'VILLA GRANDE DE INDIAS 2 MANZANA 23 LOTE 28.' + '\n'
+                    text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878.233, BARRANQUILLA, ATLÁNTICO' + '\n'
+                        + 'SAN LUIS, CARRERA 4C #91-63' + '\n'
                         + 'Celular: 304 573 7344' + '\n'
                         + '' + '\n'
                         + 'Nombre: ' + state.printItem[i].name + ' ' + state.printItem[i].lastName + '\n'
@@ -174,8 +174,8 @@ export default new Vuex.Store({
                         + 'Flete pago ' + '| |' + ' Flete contra entrega ' + '| |' + '\n'
                         + '_______________________________________________________________________________' + '\n';
                 } else if (state.printItem[i].address !== undefined && state.printItem[i].neighborhood !== undefined) {
-                    text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878.233, CARTAGENA DE INDIAS.' + '\n'
-                        + 'VILLA GRANDE DE INDIAS 2 MANZANA 23 LOTE 28.' + '\n'
+                    text = '\nKEISSY GARCÍA LÓPEZ, CC: 1.140.878.233, BARRANQUILLA, ATLÁNTICO' + '\n'
+                        + 'SAN LUIS, CARRERA 4C #91-63' + '\n'
                         + 'Celular: 304 573 7344' + '\n'
                         + '' + '\n'
                         + 'Nombre: ' + state.printItem[i].name + '\n'
