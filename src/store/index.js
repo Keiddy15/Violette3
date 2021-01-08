@@ -127,7 +127,7 @@ export default new Vuex.Store({
             let suma = height + 10;
             let textPos = height + 50;
             for (let i in state.printItem) {
-                if (limit === 6) {
+                if (limit === 8) {
                     page = pdfDoc.addPage();
                     page.setWidth(612);
                     page.setHeight(791);
@@ -136,7 +136,7 @@ export default new Vuex.Store({
                     textPos = height + 50;
                 }
 
-                suma = suma - 130;
+                suma = suma - 100;
 
                 page.drawImage(pngImage, {
                     x: 20,
@@ -179,7 +179,7 @@ export default new Vuex.Store({
                         + '_______________________________________________________________________________' + '\n';
                 }
 
-                textPos = textPos - 128;
+                textPos = textPos - 98;
 
                 page.drawText(text, { //dibujar o escribir
                     x: 90,
